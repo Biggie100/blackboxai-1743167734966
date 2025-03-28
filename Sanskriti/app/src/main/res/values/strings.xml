@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Sanskriti</string>
+    <string name="app_slogan">Where Words Meet Wisdom!</string>
+    
+    <!-- Auth Strings -->
+    <string name="welcome_title">Welcome to Sanskriti</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="invalid_email">Please enter a valid email</string>
+    <string name="password_length">Password must be at least 6 characters</string>
+    
+    <!-- Level Selection -->
+    <string name="select_level">Select Difficulty Level</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    
+    <!-- Quiz Strings -->
+    <string name="question">Question %d</string>
+    <string name="next">Next</string>
+    <string name="submit">Submit</string>
+    
+    <!-- Results -->
+    <string name="score">Your Score: %d/%d</string>
+    <string name="try_again">Try Again</string>
+    <string name="next_level">Next Level</string>
+</resources>
