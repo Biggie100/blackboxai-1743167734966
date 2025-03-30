@@ -8,10 +8,26 @@
     <string name="welcome_title">Welcome to Sanskriti</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="username_hint">Username</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="dob_hint">Date of Birth</string>
+    <string name="address_hint">Address</string>
+    <string name="city_hint">City</string>
+    <string name="state_hint">State</string>
+    <string name="zip_hint">ZIP Code</string>
+    <string name="country_hint">Country</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="terms_agree">I agree to terms and conditions</string>
+    <string name="newsletter_subscribe">Subscribe to newsletter</string>
     <string name="invalid_email">Please enter a valid email</string>
     <string name="password_length">Password must be at least 6 characters</string>
+    <string name="password_mismatch">Passwords don\'t match</string>
+    <string name="required_field">This field is required</string>
     
     <!-- Level Selection -->
     <string name="select_level">Select Difficulty Level</string>
