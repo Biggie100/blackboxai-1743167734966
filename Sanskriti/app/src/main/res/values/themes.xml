@@ -15,9 +15,9 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         
         <!-- Shape system -->
-        <item name="shapeCornerSmall">4dp</item>
-        <item name="shapeCornerMedium">8dp</item>
-        <item name="shapeCornerLarge">12dp</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Sanskriti.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Sanskriti.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Sanskriti.LargeComponent</item>
         
         <!-- Typography -->
         <item name="textAppearanceTitleLarge">@style/TextAppearance.Sanskriti.Title</item>
