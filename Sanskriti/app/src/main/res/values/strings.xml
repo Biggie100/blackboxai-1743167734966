@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Sanskriti</string>
     <string name="app_slogan">Where Words Meet Wisdom!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     
     <!-- Auth Strings -->
     <string name="welcome_title">Welcome to Sanskriti</string>
