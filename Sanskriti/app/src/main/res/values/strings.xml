@@ -44,4 +44,8 @@
     <string name="score">Your Score: %d/%d</string>
     <string name="try_again">Try Again</string>
     <string name="next_level">Next Level</string>
+
+    <!-- Welcome Screen -->
+    <string name="get_started">Get Started</string>
+    <string name="version">Version 1.0</string>
 </resources>
