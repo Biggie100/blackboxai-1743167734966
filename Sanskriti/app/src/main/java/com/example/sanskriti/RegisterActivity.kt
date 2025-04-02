@@ -15,10 +15,25 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Initialize all fields to empty state
+        binding.usernameField.setText("")
+        binding.emailField.setText("")
+        binding.passwordField.setText("")
+        binding.confirmPasswordField.setText("")
+        binding.termsCheckbox.isChecked = false
+
+        // Clear any existing errors
+        clearAllErrors()
+
         // Set up click listeners
         binding.registerButton.setOnClickListener {
-            if (validateForm()) {
-                registerUser()
+            binding.registerButton.isEnabled = false
+            try {
+                if (validateForm()) {
+                    registerUser()
+                }
+            } finally {
+                binding.registerButton.isEnabled = true
             }
         }
 
@@ -28,38 +43,58 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateForm(): Boolean {
-        var isValid = true
+    private fun clearAllErrors() {
+        binding.usernameField.error = null
+        binding.emailField.error = null
+        binding.passwordField.error = null
+        binding.confirmPasswordField.error = null
+    }
 
-        // Validate required fields
+    private fun validateForm(): Boolean {
+        clearAllErrors()
+        var isValid = true
+        var hasErrors = false
+
+        // Username validation
         if (binding.usernameField.text.isNullOrEmpty()) {
             binding.usernameField.error = getString(R.string.required_field)
             isValid = false
+            hasErrors = true
         }
 
-        if (binding.emailField.text.isNullOrEmpty()) {
-            binding.emailField.error = getString(R.string.required_field)
-            isValid = false
-        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(binding.emailField.text.toString()).matches()) {
-            binding.emailField.error = getString(R.string.invalid_email)
-            isValid = false
+        // Email validation (optional)
+        binding.emailField.text?.let { email ->
+            if (email.isNotBlank() && !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.emailField.error = getString(R.string.invalid_email)
+                isValid = false
+                hasErrors = true
+            }
         }
 
+        // Password validation
         if (binding.passwordField.text.isNullOrEmpty()) {
             binding.passwordField.error = getString(R.string.required_field)
             isValid = false
+            hasErrors = true
         } else if (binding.passwordField.text!!.length < 6) {
             binding.passwordField.error = getString(R.string.password_length)
             isValid = false
+            hasErrors = true
         }
 
+        // Confirm password validation
         if (binding.confirmPasswordField.text.toString() != binding.passwordField.text.toString()) {
             binding.confirmPasswordField.error = getString(R.string.password_mismatch)
             isValid = false
+            hasErrors = true
         }
 
+        // Terms validation
         if (!binding.termsCheckbox.isChecked) {
-            Snackbar.make(binding.root, "You must agree to terms and conditions", Snackbar.LENGTH_SHORT).show()
+            if (hasErrors) {
+                // Only show snackbar if no other errors are visible
+                Snackbar.make(binding.root, "You must agree to terms and conditions", Snackbar.LENGTH_SHORT).show()
+            }
             isValid = false
         }
 
