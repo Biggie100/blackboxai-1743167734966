@@ -53,14 +53,23 @@ class WelcomeActivity : AppCompatActivity() {
             true
         }
 
-        // Show app name and slogan
+        // Initialize UI elements
         binding.appName.text = getString(R.string.app_name)
         binding.appSlogan.text = getString(R.string.app_slogan)
+        binding.versionText.text = getString(R.string.version)
 
-        // Navigate to AuthActivity after 2 seconds
-        Handler(Looper.getMainLooper()).postDelayed({
+        // Handle get started button click
+        binding.getStartedButton.setOnClickListener {
             startActivity(Intent(this, AuthActivity::class.java))
             finish()
+        }
+
+        // Auto-navigate after 2 seconds if user doesn't click
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (!isFinishing) {
+                startActivity(Intent(this, AuthActivity::class.java))
+                finish()
+            }
         }, 2000)
     }
 }
